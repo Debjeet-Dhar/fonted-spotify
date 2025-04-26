@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify Clone with Rooms</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="logo">
+                <i class="fab fa-spotify"></i>
+                <span>Spotify Rooms</span>
+            </div>
+            <button id="create-room-btn">Create Room</button>
+            <div class="room-list" id="room-list">
+                <h4>Available Rooms</h4>
+                <ul id="available-rooms"></ul>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="top-bar">
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search for songs" id="search-input">
+                </div>
+                <div class="user-profile">
+                    <span id="username">Guest</span>
+                    <div class="avatar">
+                        <img src="https://i.imgur.com/8Km9tLL.jpg" alt="User">
+                    </div>
+                </div>
+            </div>
+
+            <div class="content">
+                <div id="room-view" class="hidden">
+                    <div class="room-header">
+                        <h3>Room: <span id="room-name">Unnamed</span></h3>
+                        <p>Members: <span id="member-count">0</span></p>
+                        <button id="leave-room">Leave Room</button>
+                    </div>
+                    
+                    <div class="player-container">
+                        <div class="song-info">
+                            <img src="" alt="Album Cover" id="album-cover">
+                            <div>
+                                <p id="song-title">No song selected</p>
+                                <p id="song-artist">-</p>
+                            </div>
+                        </div>
+                        <div class="player-controls">
+                            <div class="controls">
+                                <i class="fas fa-step-backward" id="prev-track"></i>
+                                <i class="fas fa-play-circle" id="play-pause"></i>
+                                <i class="fas fa-step-forward" id="next-track"></i>
+                            </div>
+                            <div class="progress-container">
+                                <span id="current-time">0:00</span>
+                                <div class="progress-bar">
+                                    <div class="progress" id="progress"></div>
+                                </div>
+                                <span id="duration">0:00</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="chat-container">
+                        <div class="messages" id="chat-messages"></div>
+                        <div class="chat-input">
+                            <input type="text" id="message-input" placeholder="Type your message...">
+                            <button id="send-message">Send</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="default-view">
+                    <h2>Welcome to Spotify Rooms</h2>
+                    <p>Create or join a room to listen to music with friends!</p>
+                    <div class="cards" id="search-results"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Room Creation Modal -->
+    <div class="modal" id="room-modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Create or Join Room</h3>
+            <input type="text" id="username-input" placeholder="Your name">
+            <input type="text" id="room-code-input" placeholder="Room code (leave empty to create)">
+            <button id="confirm-room">Continue</button>
+        </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
