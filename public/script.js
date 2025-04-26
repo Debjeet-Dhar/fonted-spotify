@@ -71,7 +71,7 @@ function checkAuth() {
 
 // Connect to Socket.io server
 function connectSocket() {
-    socket = io('http://localhost:5000');
+    socket = io('https://backend-spotify-production-31e7.up.railway.app/');
 
     socket.on('roomCreated', (data) => {
         currentRoom = data.roomId;
