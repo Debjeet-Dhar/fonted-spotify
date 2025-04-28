@@ -27,8 +27,8 @@ const currentTime = document.getElementById('current-time');
 const duration = document.getElementById('duration');
 
  //& Spotify API config
- const CLIENT_ID = 'YOUR_SPOTIFY_CLIENT_ID';
- const REDIRECT_URI = 'http://localhost:3000/callback';
+ const CLIENT_ID = 'b38ab50cf04e41ff82ed6d7882d98bf0';
+ const REDIRECT_URI = 'https://fonted-spotify.vercel.app/callback';
  const AUTH_ENDPOINT = 'https://accounts.spotify.com/authorize';
  const RESPONSE_TYPE = 'token';
  const SCOPE = 'streaming user-read-email user-read-private user-library-read user-library-modify user-read-playback-state user-modify-playback-state';
